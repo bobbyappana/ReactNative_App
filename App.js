@@ -1,9 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Alert, FlatList, StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { Alert, FlatList, StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, Button } from 'react-native';
 import AddTodo from './components/AddTodo';
 import Header from './components/header';
 import TodoItem from './components/TodoItem';
+// import Navigations from '../firstproject/routes/navigations'
+// import RootDrawerNavigator from '../firstproject/routes/index'
+import Home from './components/Screens/Home';
 export default function App() {
   const [todo, setTodo] = useState([
     { text: 'ram', key: '1' },
@@ -30,7 +33,7 @@ export default function App() {
   }
 
   return (
-    <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss() }}>
+    <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss() }}>
       <View style={{ backgroundColor: "#fff" }}>
         <Header />
         <View style={styles.content}>
@@ -42,6 +45,11 @@ export default function App() {
                 <TodoItem item={item} handler={pressHandler} />
               )} />
           </View>
+        </View>
+        <View style={styles.button}>
+          {/* <Navigations /> */}
+          {/* <RootDrawerNavigator /> */}
+          <Home />
         </View>
         <StatusBar style="auto" />
       </View>
@@ -59,5 +67,8 @@ const styles = StyleSheet.create({
   list: {
     marginTop: 20,
     color: 'black'
+  },
+  button: {
+    padding: 50
   }
 });

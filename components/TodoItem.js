@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-
+import { MaterialIcons } from "@expo/vector-icons";
 const TodoItem = ({ item, handler }) => {
     return (
         <TouchableOpacity onPress={() => handler(item.key)}>
-            <Text style={styles.item}>{item.text}</Text>
+            <Text style={styles.item}><MaterialIcons name="delete" />&nbsp;&nbsp;&nbsp;{item.text}</Text>
         </TouchableOpacity>
     )
 }
@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         borderColor: '#bbb',
         borderWidth: 1,
         borderStyle: "dotted",
-        borderRadius: 10
+        borderRadius: 10,
+        flexDirection: 'row'
     }
 })
